@@ -1,0 +1,66 @@
+﻿@model PersonalLibrary.Models.Emprestimo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Emprestimo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Titulo.Titulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Titulo.Titulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Emprestado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Emprestado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PessoaEmprestimo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PessoaEmprestimo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataEmprestimo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataEmprestimo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataDevolucao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataDevolucao)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EmprestimoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
