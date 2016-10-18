@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Personal Library</title>
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="page-header">
+                            <h1>
+                                Personal Library <small>A sua Biblioteca Pessoal na Internet !</small>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+                
+                    <div class="col-md-12">
+                        <h3 class="text-center">
+                            @ViewBag.Title
+                        </h3>
+                        <div class="row">
+                            <div class="col-md-2">
+                            </div>
+                            <div class="col-md-8">
+
+                                @if (ViewBag.Erro != null)
+                                {
+                                <div class="alert alert-dismissable alert-danger">
+
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                                        ×
+                                    </button>
+                                    <h4>
+                                        Alerta!
+                                    </h4> <strong>Aviso!</strong> @ViewBag.Erro
+                                </div>
+                                }
+
+                                @RenderBody()
+
+                            </div>
+                            <div class="col-md-2">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="text-center text-muted">
+                            Sistema desenvolvido para a disciplina de LP3 - Professor Henrique Dezani
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+    @Scripts.Render("~/Content/js/jquery.min.js")
+    @Scripts.Render("~/Content/js/bootstrap.min.js")
+    @Scripts.Render("~/Content/js/scripts.js")
+    @RenderSection("scripts", required: false)
+</html>

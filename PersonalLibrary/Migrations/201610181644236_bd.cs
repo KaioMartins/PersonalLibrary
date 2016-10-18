@@ -53,8 +53,8 @@ namespace PersonalLibrary.Migrations
                 c => new
                     {
                         LivroId = c.Int(nullable: false, identity: true),
-                        Titulo = c.String(),
-                        ISBN = c.String(),
+                        Titulo = c.String(nullable: false, maxLength: 60),
+                        ISBN = c.String(nullable: false, maxLength: 60),
                         DataCompra = c.DateTime(nullable: false),
                         StatusLido = c.Boolean(nullable: false),
                         AutorId = c.Int(nullable: false),

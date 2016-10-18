@@ -1,22 +1,18 @@
 ﻿@model IEnumerable<PersonalLibrary.Models.Emprestimo>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Livros Emprestados";
 }
 
-<h2>Index</h2>
-
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Cadastrar Empréstimo", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Titulo.Titulo)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Usuario.Nome)
-        </th>
+        
         <th>
             @Html.DisplayNameFor(model => model.Emprestado)
         </th>
@@ -37,9 +33,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Titulo.Titulo)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Usuario.Nome)
-        </td>
+        
         <td>
             @Html.DisplayFor(modelItem => item.Emprestado)
         </td>
@@ -53,9 +47,9 @@
             @Html.DisplayFor(modelItem => item.DataDevolucao)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EmprestimoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EmprestimoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EmprestimoId })
+            @Html.ActionLink("Editar", "Edit", new { id=item.EmprestimoId }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.EmprestimoId }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.EmprestimoId })
         </td>
     </tr>
 }

@@ -117,7 +117,7 @@ namespace PersonalLibrary.Controllers
             {
                 db.Entry(usuario).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Livro");
             }
             return View(usuario);
         }
@@ -147,6 +147,9 @@ namespace PersonalLibrary.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        
+
 
         protected override void Dispose(bool disposing)
         {

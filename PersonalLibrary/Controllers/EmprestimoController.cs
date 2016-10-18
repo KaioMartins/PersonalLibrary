@@ -52,10 +52,7 @@ namespace PersonalLibrary.Controllers
             using (LibraryContext ctx = new LibraryContext())
             {
                 Usuario u = (Usuario)Session["usuario"];
-
-                //ViewBag.AutorId = new SelectList(db.Autor.Where(c => c.UsuarioId == u.UsuarioId), "AutorId", "Nome");
                 ViewBag.LivroId = new SelectList(db.Livro.Where(c => c.UsuarioId == u.UsuarioId), "LivroId", "Titulo");
-                //ViewBag.UsuarioId = new SelectList(db.Usuario, "UsuarioId", "Nome");
                 return View();
             }
         }
@@ -100,9 +97,16 @@ namespace PersonalLibrary.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.LivroId = new SelectList(db.Livro, "LivroId", "Titulo", emprestimo.LivroId);
-            ViewBag.UsuarioId = new SelectList(db.Usuario, "UsuarioId", "Nome", emprestimo.UsuarioId);
-            return View(emprestimo);
+
+            using (LibraryContext ctx = new LibraryContext())
+            {
+                Usuario u = (Usuario)Session["usuario"];
+                ViewBag.LivroId = new SelectList(db.Livro.Where(c => c.UsuarioId == u.UsuarioId), "LivroId", "Titulo");
+                return View(emprestimo);
+            }
+            //ViewBag.LivroId = new SelectList(db.Livro, "LivroId", "Titulo", emprestimo.LivroId);
+           //ViewBag.UsuarioId = new SelectList(db.Usuario, "UsuarioId", "Nome", emprestimo.UsuarioId);
+            //return View(emprestimo);
         }
 
         // POST: Emprestimo/Edit/5
@@ -114,6 +118,9 @@ namespace PersonalLibrary.Controllers
         {
             if (ModelState.IsValid)
             {
+                Usuario u = Session["usuario"] as Usuario;
+                emprestimo.UsuarioId = u.UsuarioId;
+
                 db.Entry(emprestimo).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

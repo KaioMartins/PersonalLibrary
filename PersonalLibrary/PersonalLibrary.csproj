@@ -206,9 +206,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610171658233_bd.cs" />
-    <Compile Include="Migrations\201610171658233_bd.Designer.cs">
-      <DependentUpon>201610171658233_bd.cs</DependentUpon>
+    <Compile Include="Migrations\201610181644236_bd.cs" />
+    <Compile Include="Migrations\201610181644236_bd.Designer.cs">
+      <DependentUpon>201610181644236_bd.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -229,6 +229,9 @@
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\img\img_1.jpg" />
+    <Content Include="Content\img\img_2.jpg" />
+    <Content Include="Content\img\img_3.jpg" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\jquery.min.js" />
     <Content Include="Content\js\scripts.js" />
@@ -315,6 +318,7 @@
     <Content Include="Views\Shared\_Layout_Completo.cshtml" />
     <Content Include="Views\Shared\_Layout_Login.cshtml" />
     <Content Include="Views\Shared\_Layout_Index.cshtml" />
+    <Content Include="Views\Shared\_Layout_Registro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -328,8 +332,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610171658233_bd.resx">
-      <DependentUpon>201610171658233_bd.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201610181644236_bd.resx">
+      <DependentUpon>201610181644236_bd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

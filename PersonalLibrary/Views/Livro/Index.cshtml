@@ -1,13 +1,12 @@
 ﻿@model IEnumerable<PersonalLibrary.Models.Livro>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Livros";
 }
 
-<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Cadastrar novo Livro", "Create")
 </p>
 <table class="table">
     <tr>
@@ -16,7 +15,7 @@
             @Html.DisplayNameFor(model => model.Titulo)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Autor)
+            @Html.DisplayNameFor(model => model.Autor.Nome)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ISBN)
@@ -37,7 +36,7 @@
             @Html.DisplayFor(modelItem => item.Titulo)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.LivroId)
+            @Html.DisplayFor(modelItem => item.Autor.Nome)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ISBN)
@@ -49,9 +48,9 @@
             @Html.DisplayFor(modelItem => item.StatusLido)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.LivroId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.LivroId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.LivroId })
+            @Html.ActionLink("Editar", "Edit", new { id=item.LivroId }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.LivroId }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.LivroId })
         </td>
     </tr>
 }

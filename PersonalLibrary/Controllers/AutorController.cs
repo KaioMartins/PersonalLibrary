@@ -91,10 +91,13 @@ namespace PersonalLibrary.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "AutorId,Nome")] Autor autor)
+        public ActionResult Edit([Bind(Include = "AutorId,Nome,UsuarioId")] Autor autor)
         {
             if (ModelState.IsValid)
             {
+                Usuario u = Session["usuario"] as Usuario;
+                autor.UsuarioId = u.UsuarioId;
+
                 db.Entry(autor).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

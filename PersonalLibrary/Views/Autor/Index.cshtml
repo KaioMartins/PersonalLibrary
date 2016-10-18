@@ -1,20 +1,21 @@
 ﻿@model IEnumerable<PersonalLibrary.Models.Autor>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Autores";
 }
 
-<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Cadastrar novo Autor", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Nome)
         </th>
-        <th></th>
+        <th>
+            Ações
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -23,9 +24,9 @@
             @Html.DisplayFor(modelItem => item.Nome)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.AutorId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.AutorId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.AutorId })
+            @Html.ActionLink("Editar", "Edit", new { id=item.AutorId }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.AutorId }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.AutorId })
         </td>
     </tr>
 }

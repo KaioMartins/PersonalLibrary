@@ -69,13 +69,21 @@ namespace PersonalLibrary.Controllers
                 {
                     Usuario u = (Usuario)Session["usuario"];
                     livro.UsuarioId = u.UsuarioId;
-                    
-                    db.Livro.Add(livro);
-                    db.SaveChanges();
+
+                    if(livro.AutorId.Equals(0))
+                    {
+                        ViewBag.Erro = "É necessário cadastrar o Primeiro Autor antes de cadastrar um Livro!";
+                        return View();
+                    }else
+                    {
+                        db.Livro.Add(livro);
+                        db.SaveChanges();
+                    }                   
 
                     ViewBag.AutorId = new SelectList(db.Autor, "AutorId", "Nome", livro.AutorId);
                     return RedirectToAction("Index");
                 }
+                
                 
                 //ViewBag.AutorId = new SelectList(db.Autor, "AutorId", "Nome", livro.AutorId);
                 return View(livro);
