@@ -22,8 +22,8 @@ namespace PersonalLibrary.Controllers
                 Usuario user = (Usuario)Session["usuario"];
                 int id = user.UsuarioId;
 
-                var emprestimo = ctx.Emprestimo.Include(e => e.Titulo).Include(e => e.Usuario);
-                return View(emprestimo.ToList());
+                List<Emprestimo> lista = ctx.Emprestimo.Where(c => c.UsuarioId == id).ToList();
+                return View(lista);
             }
 
             //var emprestimo = db.Emprestimo.Include(e => e.Titulo).Include(e => e.Usuario);
@@ -48,9 +48,16 @@ namespace PersonalLibrary.Controllers
         // GET: Emprestimo/Create
         public ActionResult Create()
         {
-            ViewBag.LivroId = new SelectList(db.Livro, "LivroId", "Titulo");
-            ViewBag.UsuarioId = new SelectList(db.Usuario, "UsuarioId", "Nome");
-            return View();
+
+            using (LibraryContext ctx = new LibraryContext())
+            {
+                Usuario u = (Usuario)Session["usuario"];
+
+                //ViewBag.AutorId = new SelectList(db.Autor.Where(c => c.UsuarioId == u.UsuarioId), "AutorId", "Nome");
+                ViewBag.LivroId = new SelectList(db.Livro.Where(c => c.UsuarioId == u.UsuarioId), "LivroId", "Titulo");
+                //ViewBag.UsuarioId = new SelectList(db.Usuario, "UsuarioId", "Nome");
+                return View();
+            }
         }
 
         // POST: Emprestimo/Create

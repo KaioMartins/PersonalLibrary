@@ -18,6 +18,7 @@ namespace PersonalLibrary.Models
         public int AutorId { get; set; }
         [ForeignKey("AutorId")]
         public virtual Autor Autor { get; set; }
+        
 
         public int UsuarioId { get; set; }
         [ForeignKey("UsuarioId")]

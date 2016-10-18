@@ -1,4 +1,7 @@
 ﻿/// <autosync enabled="true" />
+/// <reference path="../content/js/bootstrap.min.js" />
+/// <reference path="../content/js/jquery.min.js" />
+/// <reference path="../content/js/scripts.js" />
 /// <reference path="ai.0.22.19-build00125.min.js" />
 /// <reference path="bootstrap.js" />
 /// <reference path="jquery.validate.js" />

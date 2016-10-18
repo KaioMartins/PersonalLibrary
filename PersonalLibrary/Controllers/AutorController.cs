@@ -125,6 +125,7 @@ namespace PersonalLibrary.Controllers
             Autor autor = db.Autor.Find(id);
             db.Autor.Remove(autor);
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 

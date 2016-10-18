@@ -13,7 +13,7 @@ namespace PersonalLibrary.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201610161148382_bd"; }
+            get { return "201610171658233_bd"; }
         }
         
         string IMigrationMetadata.Source

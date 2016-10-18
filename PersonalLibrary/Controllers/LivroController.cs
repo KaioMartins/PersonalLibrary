@@ -48,9 +48,12 @@ namespace PersonalLibrary.Controllers
         // GET: Livro/Create
         public ActionResult Create()
         {
-            ViewBag.AutorId = new SelectList(db.Autor, "AutorId", "Nome");
-            ViewBag.UsuarioId = new SelectList(db.Usuario, "UsuarioId", "Nome");
-            return View();
+            using (LibraryContext ctx = new LibraryContext()) {
+                Usuario u = (Usuario)Session["usuario"];
+
+                ViewBag.AutorId = new SelectList(db.Autor.Where(c => c.UsuarioId == u.UsuarioId), "AutorId", "Nome");
+                return View();
+            }
         }
 
         // POST: Livro/Create
@@ -64,14 +67,13 @@ namespace PersonalLibrary.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    Usuario u = Session["usuario"] as Usuario;
+                    Usuario u = (Usuario)Session["usuario"];
                     livro.UsuarioId = u.UsuarioId;
-
+                    
                     db.Livro.Add(livro);
                     db.SaveChanges();
 
-                    ViewBag.AutorId = new SelectList(db.Autor, "AutorId", "Nome", ctx.Autor.Where(c => c.UsuarioId == u.UsuarioId));
-
+                    ViewBag.AutorId = new SelectList(db.Autor, "AutorId", "Nome", livro.AutorId);
                     return RedirectToAction("Index");
                 }
                 
