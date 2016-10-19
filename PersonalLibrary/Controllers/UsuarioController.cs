@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using PersonalLibrary.Models;
 using System.Web.Security;
+using PersonalLibrary.Filters;
 
 namespace PersonalLibrary.Controllers
 {
@@ -40,6 +41,7 @@ namespace PersonalLibrary.Controllers
             ViewBag.Erro = "Usuário ou senha incorretos";
             return View();
         }
+        [AuthFilter]
         public ActionResult LogOff()
         {
             FormsAuthentication.SignOut();
@@ -47,6 +49,7 @@ namespace PersonalLibrary.Controllers
             return RedirectToAction("Login", "Usuario");
         }
         // GET: Usuario
+        [AuthFilter]
         public ActionResult Index()
         {
             
@@ -54,6 +57,7 @@ namespace PersonalLibrary.Controllers
         }
 
         // GET: Usuario/Details/5
+        [AuthFilter]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -92,6 +96,7 @@ namespace PersonalLibrary.Controllers
         }
 
         // GET: Usuario/Edit/5
+        [AuthFilter]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -111,6 +116,7 @@ namespace PersonalLibrary.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AuthFilter]
         public ActionResult Edit([Bind(Include = "UsuarioId,Nome,Email,Senha")] Usuario usuario)
         {
             if (ModelState.IsValid)
@@ -123,6 +129,7 @@ namespace PersonalLibrary.Controllers
         }
 
         // GET: Usuario/Delete/5
+        [AuthFilter]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -140,6 +147,7 @@ namespace PersonalLibrary.Controllers
         // POST: Usuario/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [AuthFilter]
         public ActionResult DeleteConfirmed(int id)
         {
             Usuario usuario = db.Usuario.Find(id);

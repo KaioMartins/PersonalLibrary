@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using PersonalLibrary.Models;
+using PersonalLibrary.Filters;
 
 namespace PersonalLibrary.Controllers
 {
@@ -15,6 +16,7 @@ namespace PersonalLibrary.Controllers
         private LibraryContext db = new LibraryContext();
 
         // GET: Livro
+        [AuthFilter]
         public ActionResult Index()
         {
             using(LibraryContext ctx = new LibraryContext())
@@ -31,6 +33,7 @@ namespace PersonalLibrary.Controllers
         }
 
         // GET: Livro/Details/5
+        [AuthFilter]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -46,6 +49,7 @@ namespace PersonalLibrary.Controllers
         }
 
         // GET: Livro/Create
+        [AuthFilter]
         public ActionResult Create()
         {
             using (LibraryContext ctx = new LibraryContext()) {
@@ -61,6 +65,7 @@ namespace PersonalLibrary.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AuthFilter]
         public ActionResult Create([Bind(Include = "LivroId,Titulo,ISBN,DataCompra,StatusLido,AutorId,UsuarioId")] Livro livro)
         {
             using (LibraryContext ctx = new LibraryContext())
@@ -91,6 +96,7 @@ namespace PersonalLibrary.Controllers
         }
 
         // GET: Livro/Edit/5
+        [AuthFilter]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -112,6 +118,7 @@ namespace PersonalLibrary.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AuthFilter]
         public ActionResult Edit([Bind(Include = "LivroId,Titulo,ISBN,DataCompra,StatusLido,AutorId,UsuarioId")] Livro livro)
         {
             if (ModelState.IsValid)
@@ -126,6 +133,7 @@ namespace PersonalLibrary.Controllers
         }
 
         // GET: Livro/Delete/5
+        [AuthFilter]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -143,6 +151,7 @@ namespace PersonalLibrary.Controllers
         // POST: Livro/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [AuthFilter]
         public ActionResult DeleteConfirmed(int id)
         {
             Livro livro = db.Livro.Find(id);

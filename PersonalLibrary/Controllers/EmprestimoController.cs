@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using PersonalLibrary.Models;
+using PersonalLibrary.Filters;
 
 namespace PersonalLibrary.Controllers
 {
@@ -15,6 +16,7 @@ namespace PersonalLibrary.Controllers
         private LibraryContext db = new LibraryContext();
 
         // GET: Emprestimo
+        [AuthFilter]
         public ActionResult Index()
         {
             using(LibraryContext ctx = new LibraryContext())
@@ -31,6 +33,7 @@ namespace PersonalLibrary.Controllers
         }
 
         // GET: Emprestimo/Details/5
+        [AuthFilter]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -46,6 +49,7 @@ namespace PersonalLibrary.Controllers
         }
 
         // GET: Emprestimo/Create
+        [AuthFilter]
         public ActionResult Create()
         {
 
@@ -62,6 +66,7 @@ namespace PersonalLibrary.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AuthFilter]
         public ActionResult Create([Bind(Include = "EmprestimoId,Emprestado,PessoaEmprestimo,DataEmprestimo,DataDevolucao,LivroId,UsuarioId")] Emprestimo emprestimo)
         {
             using (LibraryContext ctx = new LibraryContext())
@@ -86,6 +91,7 @@ namespace PersonalLibrary.Controllers
         }
 
         // GET: Emprestimo/Edit/5
+        [AuthFilter]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -114,6 +120,7 @@ namespace PersonalLibrary.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AuthFilter]
         public ActionResult Edit([Bind(Include = "EmprestimoId,Emprestado,PessoaEmprestimo,DataEmprestimo,DataDevolucao,LivroId,UsuarioId")] Emprestimo emprestimo)
         {
             if (ModelState.IsValid)
@@ -131,6 +138,7 @@ namespace PersonalLibrary.Controllers
         }
 
         // GET: Emprestimo/Delete/5
+        [AuthFilter]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -148,6 +156,7 @@ namespace PersonalLibrary.Controllers
         // POST: Emprestimo/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [AuthFilter]
         public ActionResult DeleteConfirmed(int id)
         {
             Emprestimo emprestimo = db.Emprestimo.Find(id);
