@@ -38,15 +38,18 @@ namespace PersonalLibrary.Controllers
         [AuthFilter]
         public ActionResult Details(int? id)
         {
+            
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            
             Livro livro = db.Livro.Find(id);
             if (livro == null)
             {
                 return HttpNotFound();
             }
+            db.Entry(livro).Reference(e => e.Autor).Load();
             return View(livro);
         }
 
@@ -110,8 +113,12 @@ namespace PersonalLibrary.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.AutorId = new SelectList(db.Autor, "AutorId", "Nome", livro.AutorId);
-            ViewBag.UsuarioId = new SelectList(db.Usuario, "UsuarioId", "Nome", livro.UsuarioId);
+
+            Usuario u = (Usuario)Session["usuario"];
+
+            ViewBag.AutorId = new SelectList(db.Autor.Where(c => c.UsuarioId == u.UsuarioId), "AutorId", "Nome");
+            //ViewBag.AutorId = new SelectList(db.Autor, "AutorId", "Nome", livro.AutorId);
+            //ViewBag.UsuarioId = new SelectList(db.Usuario, "UsuarioId", "Nome", livro.UsuarioId);
             return View(livro);
         }
 
@@ -125,12 +132,15 @@ namespace PersonalLibrary.Controllers
         {
             if (ModelState.IsValid)
             {
+                Usuario u = (Usuario)Session["usuario"];
+                livro.UsuarioId = u.UsuarioId;
+
                 db.Entry(livro).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AutorId = new SelectList(db.Autor, "AutorId", "Nome", livro.AutorId);
-            ViewBag.UsuarioId = new SelectList(db.Usuario, "UsuarioId", "Nome", livro.UsuarioId);
+            //ViewBag.AutorId = new SelectList(db.Autor, "AutorId", "Nome", livro.AutorId);
+            //ViewBag.UsuarioId = new SelectList(db.Usuario, "UsuarioId", "Nome", livro.UsuarioId);
             return View(livro);
         }
 

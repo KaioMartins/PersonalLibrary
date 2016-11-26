@@ -26,6 +26,9 @@
         <th>
             @Html.DisplayNameFor(model => model.StatusLido)
         </th>
+        <th>
+            Ações
+        </th>
         <th></th>
     </tr>
 
@@ -47,6 +50,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.StatusLido)
         </td>
+        
         <td>
             @Html.ActionLink("Editar", "Edit", new { id=item.LivroId }) |
             @Html.ActionLink("Detalhes", "Details", new { id=item.LivroId }) |
