@@ -24,7 +24,9 @@ namespace PersonalLibrary.Controllers
                 Usuario user = (Usuario)Session["usuario"];
                 int id = user.UsuarioId;
 
-                List<Livro> lista = ctx.Livro.Where(c => c.UsuarioId == id).ToList();
+                //ctx.Livro.Include(x => x.Autor)
+                //Para carregar o objeto virtual
+                List<Livro> lista = ctx.Livro.Include(x => x.Autor).Where(c => c.UsuarioId == id).ToList();
                 return View(lista);
             }
 

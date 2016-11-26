@@ -33,10 +33,5 @@ namespace PersonalLibrary.Models
         public int UsuarioId { get; set; }
         [ForeignKey("UsuarioId")]
         public virtual Usuario Usuario { get; set; }
-
-        //[Display(Name = "Usuário")]
-        //public int UsuarioId { get; set; }
-        //[ForeignKey("UsuarioId")]
-        //public virtual Usuario Usuario { get; set; }
     }
 }
