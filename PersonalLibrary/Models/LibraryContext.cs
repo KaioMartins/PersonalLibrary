@@ -12,6 +12,7 @@ namespace PersonalLibrary.Models
         public LibraryContext() : base("StrConn")
         {
             this.Configuration.LazyLoadingEnabled = false;
+            
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

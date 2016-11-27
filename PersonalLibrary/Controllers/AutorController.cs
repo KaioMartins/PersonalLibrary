@@ -135,9 +135,18 @@ namespace PersonalLibrary.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Autor autor = db.Autor.Find(id);
-            db.Autor.Remove(autor);
-            db.SaveChanges();
 
+            try
+            {
+                db.Autor.Remove(autor);
+                db.SaveChanges();
+            }
+            catch (Exception)
+            {
+                ViewBag.Erro = "Não é possível excluir. Há um livro vinculado à este Autor. Exclua o livro antes de excluir o Autor";
+                return View(autor);
+            }
+            
             return RedirectToAction("Index");
         }
 

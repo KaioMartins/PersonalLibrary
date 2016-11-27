@@ -24,6 +24,7 @@ namespace PersonalLibrary.Models
 
         [Required(ErrorMessage = "Digite a Data da Compra do Livro")]
         [Display(Name = "Data da Compra")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime DataCompra { get; set; }
 
         [Display(Name = "Leitura Concluída")]

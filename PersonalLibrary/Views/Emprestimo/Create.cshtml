@@ -35,7 +35,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DataEmprestimo, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DataEmprestimo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.DataEmprestimo, new { type = "date", htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.DataEmprestimo, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -43,7 +43,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DataDevolucao, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DataDevolucao, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.DataDevolucao, new { type = "date", htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.DataDevolucao, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -69,5 +69,5 @@
 </div>
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+    @*@Scripts.Render("~/bundles/jqueryval")*@
 }

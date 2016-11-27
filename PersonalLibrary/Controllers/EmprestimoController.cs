@@ -47,6 +47,7 @@ namespace PersonalLibrary.Controllers
             {
                 return HttpNotFound();
             }
+            db.Entry(emprestimo).Reference(e => e.Livro).Load();
             return View(emprestimo);
         }
 
@@ -152,6 +153,7 @@ namespace PersonalLibrary.Controllers
             {
                 return HttpNotFound();
             }
+            db.Entry(emprestimo).Reference(e => e.Livro).Load();
             return View(emprestimo);
         }
 

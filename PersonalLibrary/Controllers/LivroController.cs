@@ -157,6 +157,8 @@ namespace PersonalLibrary.Controllers
             {
                 return HttpNotFound();
             }
+            db.Entry(livro).Reference(e => e.Autor).Load();
+           
             return View(livro);
         }
 
@@ -167,8 +169,18 @@ namespace PersonalLibrary.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Livro livro = db.Livro.Find(id);
-            db.Livro.Remove(livro);
-            db.SaveChanges();
+
+            try
+            {
+                db.Livro.Remove(livro);
+                db.SaveChanges();
+            }
+            catch(Exception)
+            {
+                ViewBag.Erro = "Este livro está emprestado. Exclua o empréstimo antes de excluir este livro.";
+                return View();
+            }           
+            
             return RedirectToAction("Index");
         }
 
