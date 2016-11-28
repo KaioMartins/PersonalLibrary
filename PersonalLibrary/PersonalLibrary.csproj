@@ -210,6 +210,18 @@
     <Compile Include="Migrations\201610181644236_bd.Designer.cs">
       <DependentUpon>201610181644236_bd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611281817022_AlteracaoAutor.cs" />
+    <Compile Include="Migrations\201611281817022_AlteracaoAutor.Designer.cs">
+      <DependentUpon>201611281817022_AlteracaoAutor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611281822076_AlteracaoAutorId.cs" />
+    <Compile Include="Migrations\201611281822076_AlteracaoAutorId.Designer.cs">
+      <DependentUpon>201611281822076_AlteracaoAutorId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611281832460_AlteracaoEmprestimoModel.cs" />
+    <Compile Include="Migrations\201611281832460_AlteracaoEmprestimoModel.Designer.cs">
+      <DependentUpon>201611281832460_AlteracaoEmprestimoModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Autor.cs" />
@@ -334,6 +346,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610181644236_bd.resx">
       <DependentUpon>201610181644236_bd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611281817022_AlteracaoAutor.resx">
+      <DependentUpon>201611281817022_AlteracaoAutor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611281822076_AlteracaoAutorId.resx">
+      <DependentUpon>201611281822076_AlteracaoAutorId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611281832460_AlteracaoEmprestimoModel.resx">
+      <DependentUpon>201611281832460_AlteracaoEmprestimoModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

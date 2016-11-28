@@ -59,7 +59,7 @@ namespace PersonalLibrary.Controllers
         {
             using (LibraryContext ctx = new LibraryContext()) {
                 Usuario u = (Usuario)Session["usuario"];
-
+                
                 ViewBag.AutorId = new SelectList(db.Autor.Where(c => c.UsuarioId == u.UsuarioId), "AutorId", "Nome");
                 return View();
             }
@@ -80,15 +80,26 @@ namespace PersonalLibrary.Controllers
                     Usuario u = (Usuario)Session["usuario"];
                     livro.UsuarioId = u.UsuarioId;
 
-                    if(livro.AutorId.Equals(0))
-                    {
-                        ViewBag.Erro = "É necessário cadastrar o Primeiro Autor antes de cadastrar um Livro!";
-                        return View();
-                    }else
+                    try
                     {
                         db.Livro.Add(livro);
                         db.SaveChanges();
-                    }                   
+                    }
+                    catch (Exception)
+                    {
+                        ViewBag.Erro = "É necessário cadastrar o Primeiro Autor antes de cadastrar um Livro!";
+                        return View();
+                    }
+                    
+                    //if(livro.AutorId.Equals(0))
+                    //{
+                    //    ViewBag.Erro = "É necessário cadastrar o Primeiro Autor antes de cadastrar um Livro!";
+                    //    return View();
+                    //}else
+                    //{
+                    //    db.Livro.Add(livro);
+                    //    db.SaveChanges();
+                    //}                   
 
                     ViewBag.AutorId = new SelectList(db.Autor, "AutorId", "Nome", livro.AutorId);
                     return RedirectToAction("Index");

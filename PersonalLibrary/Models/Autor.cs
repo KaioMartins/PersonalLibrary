@@ -9,8 +9,11 @@ namespace PersonalLibrary.Models
 {
     public class Autor
     {
+        [Required(ErrorMessage = "Cadastre um Autor")]
         [Display(Name = "Autor")]
         public int AutorId { get; set; }
+
+        [Required(ErrorMessage = "Cadastre um Autor")]
         [Display(Name = "Autor")]
         public string Nome { get; set; }
 

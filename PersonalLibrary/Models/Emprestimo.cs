@@ -13,6 +13,7 @@ namespace PersonalLibrary.Models
         [Display(Name = "Emprestado")]
         public Boolean Emprestado { get; set; }
 
+        [Required(ErrorMessage = "Informe para quem será emprestado!")]
         [Display(Name = "Emprestado para: ")]
         public string PessoaEmprestimo { get; set; }
 
