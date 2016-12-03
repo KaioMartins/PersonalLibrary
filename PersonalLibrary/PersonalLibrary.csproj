@@ -201,6 +201,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LivroController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MultimidiaController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Filters\AuthFilter.cs" />
     <Compile Include="Global.asax.cs">
@@ -235,6 +236,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\audio\imigracao_canadense2017.mp3" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\bootstrap-theme.min.css" />
@@ -331,6 +333,8 @@
     <Content Include="Views\Shared\_Layout_Login.cshtml" />
     <Content Include="Views\Shared\_Layout_Index.cshtml" />
     <Content Include="Views\Shared\_Layout_Registro.cshtml" />
+    <Content Include="Views\Multimidia\Video.cshtml" />
+    <Content Include="Views\Multimidia\Audio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
