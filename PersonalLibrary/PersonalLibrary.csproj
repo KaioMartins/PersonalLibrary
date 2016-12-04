@@ -335,6 +335,7 @@
     <Content Include="Views\Shared\_Layout_Registro.cshtml" />
     <Content Include="Views\Multimidia\Video.cshtml" />
     <Content Include="Views\Multimidia\Audio.cshtml" />
+    <Content Include="Views\Multimidia\Texto.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -34,7 +34,7 @@ namespace PersonalLibrary.Controllers
                 {
                     Session["usuario"] = user;
                     Session.Timeout = 1440;
-                    return RedirectToAction("Index", "Livro");
+                    return RedirectToAction("Texto", "Multimidia");
                 }
             }
 

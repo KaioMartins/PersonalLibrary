@@ -26,5 +26,11 @@ namespace PersonalLibrary.Controllers
         {
             return View();
         }
+
+        [AuthFilter]
+        public ActionResult Texto()
+        {
+            return View();
+        }
     }
 }
